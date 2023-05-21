@@ -16,6 +16,7 @@ body {
 
 body {
   background-color: #f5f7ff;
+  padding: 20px max(80px + (100% - 1440px) / 2, 24px);
 }
 
 a {
