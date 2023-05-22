@@ -26,24 +26,12 @@
     "react",
     "@typescript-eslint",
     "react-hooks",
-    "jest",
     "testing-library"
   ],
   "rules": {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "react/react-in-jsx-scope": "off",
-    "prettier/prettier": "error",
-
-    "jest/no-disabled-tests": "warn",
-    "jest/no-focused-tests": "error",
-    "jest/no-identical-title": "error",
-    "jest/prefer-to-have-length": "warn",
-    "jest/valid-expect": "error",
-
-    "testing-library/await-async-query": "error",
-		"testing-library/no-await-sync-query": "error",
-		"testing-library/no-debugging-utils": "warn",
-		"testing-library/no-dom-import": "off",
+    "prettier/prettier": "error"
   }
 }
