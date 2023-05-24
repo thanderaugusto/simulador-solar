@@ -3,16 +3,26 @@
 import styles from './page.module.css';
 
 import { Input } from '@/components/Input';
+import { zodResolver } from '@hookform/resolvers/zod';
 import Image from 'next/image';
 import { useEffect } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { z } from 'zod';
 import logo from '../../public/logo.png';
 
-type StateProps = {
-  cep: string;
-  valor: string | number;
-  tipo: string;
-};
+const schemaForm = z.object({
+  cep: z
+    .string({
+      required_error: 'O campo CEP é obrigatório',
+      invalid_type_error: 'Por favor, informe um CEP válido'
+    })
+    .min(8, 'Por favor, informe um CEP válido')
+    .max(9, 'Por favor, informe um CEP válido'),
+  tipo: z.string().min(9, 'Por favor, informe um CEP válido'),
+  valor: z.string().min(9, 'Por favor, informe um CEP válido')
+});
+
+type FormProps = z.infer<typeof schemaForm>;
 
 export default function Form() {
   const {
@@ -21,9 +31,10 @@ export default function Form() {
     setValue,
     watch,
     formState: { errors }
-  } = useForm<StateProps>({
+  } = useForm<FormProps>({
     mode: 'all',
     criteriaMode: 'firstError',
+    resolver: zodResolver(schemaForm),
     defaultValues: {
       cep: '',
       tipo: '',
@@ -31,7 +42,7 @@ export default function Form() {
     }
   });
 
-  const onSubmit: SubmitHandler<StateProps> = console.log;
+  const onSubmit: SubmitHandler<FormProps> = console.log;
 
   function formatarCEP(cep) {
     cep = cep.replace(/\D/g, '');
@@ -65,7 +76,7 @@ export default function Form() {
             register={register}
             fixedLabel={!!cep}
             errorMessage={errors?.cep?.message}
-            registerOptions={{ required: 'O campo CEP é obrigatório' }}
+            // registerOptions={{ required: 'O campo CEP é obrigatório' }}
           />
 
           <Input
@@ -75,7 +86,7 @@ export default function Form() {
             register={register}
             fixedLabel={!!valor}
             errorMessage={errors?.valor?.message}
-            registerOptions={{ required: 'O campo Valor é obrigatório' }}
+            // registerOptions={{ required: 'O campo Valor é obrigatório' }}
           />
           <button type="submit">JAMIL</button>
         </form>
