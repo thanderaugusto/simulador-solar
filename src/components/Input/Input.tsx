@@ -24,7 +24,7 @@ export const Input = ({
 }: InputProps) => {
   const id = useId();
   return (
-    <>
+    <div className={styles.input_group}>
       <div
         className={`${styles.container} ${
           errorMessage ? styles.container_error : ''
@@ -48,8 +48,10 @@ export const Input = ({
           {...rest}
         />
       </div>
-      {errorMessage && <p style={{ color: '#CC0000' }}>{errorMessage}</p>}
-    </>
+      {errorMessage && (
+        <p style={{ color: '#CC0000', marginLeft: 5 }}>{errorMessage}</p>
+      )}
+    </div>
   );
 };
 
