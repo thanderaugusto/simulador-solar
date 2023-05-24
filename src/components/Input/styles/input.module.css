@@ -1,0 +1,41 @@
+.container {
+    position: relative;
+    max-width: 500px;
+    width: 100%;
+    padding: 0.6rem 1rem 0.5rem;
+    border: 2px solid transparent;
+    border-radius: 1rem;
+    background-color: #eff0f6;
+    outline: 6px solid transparent;
+    transition: .2s;
+}
+
+.container:focus-within {
+    outline: 6px solid #e5ebfe;
+    border: 2px solid #063ef9;
+}
+
+.container:focus-within .label, .fixed_label {
+    transform: translate(0px, -2.5px) scale(0.75);
+}
+
+.input {
+    margin-top: 15px;
+    border: none;
+    background-color: transparent;
+    height: 2rem;
+    width: 100%;
+    font-size: 1.1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.input:focus {
+    outline: none
+}
+
+.container_error {
+    color: #CC0000 !important;
+    border: 2px solid #CC0000 !important;
+    background-color: #FFF2F2 !important;
+}

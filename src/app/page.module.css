@@ -1,9 +1,9 @@
 .header {
   display: flex;
   align-items: center;
-  justify-contet: center;
-  flex-direction: column;
-  background-color: red:
+  justify-content: center;
+  height: 10rem;
+  font-family: 'Poppins', sans-serif;
 }
 
 .main {
@@ -11,4 +11,19 @@
   align-items: center;
   justify-contet: center;
   flex-direction: column;
+  padding: 3rem 0;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  align-items: center;
+}
+
+.main > h1 {
+  font-size: 2.4rem;
+  color: #262338;
+  margin-bottom: 4rem;
 }
